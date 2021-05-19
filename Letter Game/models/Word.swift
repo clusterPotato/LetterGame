@@ -10,7 +10,7 @@ class Word{
     var wordString = ""
     var orderedLetters: [String] = []
     init(word: String){
-        wordString = word
+        wordString = word.lowercased()
         order()
     }
     private func order(){
