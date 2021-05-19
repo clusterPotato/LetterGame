@@ -9,8 +9,32 @@ import Foundation
 class Word{
     var wordString = ""
     var orderedLetters: [String] = []
-    var permutations: [String] = []
+    init(word: String){
+        wordString = word
+        order()
+    }
+    private func order(){
+        orderSpelling()
+    }
+    private func orderSpelling(){
+        for letter in wordString{
+            orderedLetters.append(String(letter))
+        }
+    }
+    func giveRandomPermutation()->String{
+        var permutedWord = ""
+        var indexes = [0,1,2,3,4,5]
+        for _ in orderedLetters.indices{
+            let indexOfIndex = Int.random(in: indexes.indices)
+            let index = indexes[indexOfIndex]
+            let letter = orderedLetters[index]
+            indexes.remove(at: indexOfIndex)
+            permutedWord += letter
+        }
+        return permutedWord
+    }
 }
-struct jsonWord: Decodable{
-    
+
+struct JSONWord: Decodable{
+    let word: String
 }
