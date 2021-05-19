@@ -7,7 +7,9 @@
 
 import UIKit
 
-class GameBoardViewController: UIViewController {
+class GameBoardViewController: UIViewController, GameControllerUpdateDelegate {
+    
+    
     
     //MARK: - Outlets
     @IBOutlet weak var answerTextField: UITextField!
@@ -15,7 +17,7 @@ class GameBoardViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        GameController.sharedInstance.delegate = self
         
     }
     
@@ -30,5 +32,10 @@ class GameBoardViewController: UIViewController {
     }
     
     //MARK: - Functions
-    
+    func timeWasUpdated(time: Int) {
+        //do sumn here
+    }
+    func gameWasEnded() {
+        //also something
+    }
 }//End of class
