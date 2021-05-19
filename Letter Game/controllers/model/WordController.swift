@@ -8,6 +8,10 @@
 import UIKit
 class WordController{
     static let sharedInstance = WordController()
+    init(){
+        fetchAWord()
+        fetchAWord()
+    }
     var words: [Word] = []
     func fetchAWord(){
         let headers = [
