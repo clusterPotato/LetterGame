@@ -12,7 +12,9 @@ class GameController{
         let hs = UserDefaults.standard.integer(forKey: "highSore")
         highScore = hs
     }
+    let handler = WordController.sharedInstance
     var highScore = 0
+    var currentWord:Word?
     weak var delegate: GameControllerUpdateDelegate?
     var isRunning = false
     var score = 0
@@ -34,6 +36,7 @@ class GameController{
     //MARK: - custom
     func startGame(){
         if !(isRunning){
+            currentWord = handler.giveNextWord()
             timeIntervalRemaining = 10
             isRunning = true
         }
