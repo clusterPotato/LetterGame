@@ -150,7 +150,9 @@
                         <outlet property="answerTextField" destination="rf5-9r-g8J" id="PgW-Vh-ATf"/>
                         <outlet property="letterTileCollection" destination="aVT-R3-McZ" id="IwS-hO-h6z"/>
                         <outlet property="scoreProgressView" destination="Cw0-pX-6T2" id="wtW-UB-7lq"/>
+                        <outlet property="scoreTextField" destination="Ayc-uS-uNJ" id="YJQ-Nh-pN8"/>
                         <outlet property="startStopButton" destination="Xrf-Lk-Su3" id="bSg-s9-RZ0"/>
+                        <outlet property="timeRemainingTextField" destination="fFJ-6k-TdK" id="urh-2m-Bkx"/>
                         <outlet property="timerProgressView" destination="3Z6-T4-eog" id="E4q-aJ-b2f"/>
                     </connections>
                 </viewController>

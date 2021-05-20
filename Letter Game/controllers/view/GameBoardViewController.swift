@@ -15,6 +15,8 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var scoreProgressView: UIProgressView!
     @IBOutlet weak var letterTileCollection: UICollectionView!
     @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var timeRemainingTextField: UILabel!
+    @IBOutlet weak var scoreTextField: UILabel!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,8 +49,8 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     //MARK: - Functions
     func timeWasUpdated(time: Int) {
         let progressFloat = Float(time) / 30.0
-        print("progressFloat \(progressFloat)")
         timerProgressView.setProgress(progressFloat, animated: true)
+        timeRemainingTextField.text = "Time Remaining: \(time)"
     }
     
     func scoreWasUpdated() {
@@ -56,6 +58,7 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
         let highScore = Float(GameController.sharedInstance.highScore)
         let scoreFloat =  currentScore/highScore
         scoreProgressView.setProgress(scoreFloat, animated: true)
+        scoreTextField.text = "Score: \(currentScore)"
     }
     
     func gameStatusChanged(running: Bool) {
