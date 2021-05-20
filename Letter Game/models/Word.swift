@@ -21,15 +21,15 @@ class Word{
             orderedLetters.append(String(letter))
         }
     }
-    func giveRandomPermutation()->String{
-        var permutedWord = ""
+    func giveRandomPermutation()->[String]{
+        var permutedWord: [String] = []
         var indexes = [0,1,2,3,4,5]
         for _ in orderedLetters.indices{
             let indexOfIndex = Int.random(in: indexes.indices)
             let index = indexes[indexOfIndex]
             let letter = orderedLetters[index]
             indexes.remove(at: indexOfIndex)
-            permutedWord += letter
+            permutedWord.append(orderedLetters[index])
         }
         return permutedWord
     }
