@@ -38,7 +38,7 @@ class GameController{
             delegate?.scoreWasUpdated()
         }
     }
-    var timeIntervalRemaining = 10{
+    var timeIntervalRemaining = 15{
         didSet{
             delegate?.timeWasUpdated(time: timeIntervalRemaining)
         }
