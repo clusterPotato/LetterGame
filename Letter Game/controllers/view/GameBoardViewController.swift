@@ -50,6 +50,16 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
         timerProgressView.setProgress(progressFloat, animated: true)
     }
     
+    func gameStatusChanged(running: Bool) {
+        print("status changed")
+        if(running){
+            letterTileCollection.reloadData()
+            startStopButton.setTitle("Stop", for: .normal)
+        }else{
+            startStopButton.setTitle("Start", for: .normal)
+        }
+    }
+    
     func gameWasEnded() {
         timerProgressView.setProgress(0, animated: true)
         print(GameController.sharedInstance.score)
