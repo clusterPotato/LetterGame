@@ -21,7 +21,11 @@ class GameController{
             delegate?.letterAddedToController()
         }
     }
-    var currentWord:Word?
+    var currentWord:Word?{
+        didSet{
+            delegate?.wordChanged(word: currentWord!)
+        }
+    }
     var scrambledWord: [String] = []
     weak var delegate: GameControllerUpdateDelegate?
     var isRunning = false{
@@ -58,6 +62,7 @@ class GameController{
     }
     func userScored(){
         score += 5
+        currentLetters = []
         timeIntervalRemaining += 5
         roundChanged()
     }
@@ -92,4 +97,5 @@ protocol GameControllerUpdateDelegate: AnyObject{
     func gameWasEnded()
     func letterAddedToController()
     func gameStatusChanged(running: Bool)
+    func wordChanged(word: Word)
 }

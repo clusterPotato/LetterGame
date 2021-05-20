@@ -88,6 +88,10 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
     
+    func wordChanged(word: Word) {
+        self.word = word
+    }
+    
     func letterSelected(_ sender: LetterTileCollectionViewCell) {
         guard let letter = sender.letter else {return}
         GameController.sharedInstance.addLetter(letter)
