@@ -107,6 +107,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                     <connections>
                                                         <action selector="lettTileTapped:" destination="gNg-Uv-O48" eventType="touchUpInside" id="Syp-JP-ve7"/>
+                                                        <action selector="letterTileTapped:" destination="pB1-5G-voP" eventType="touchUpInside" id="iLX-r2-xpv"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
