@@ -37,7 +37,6 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
             startStopButton.setTitle("Stop", for: .normal)
         } else {
             GameController.sharedInstance.forceEndGame()
-            gameWasEnded()
             startStopButton.setTitle("Start", for: .normal)
         }
     }
