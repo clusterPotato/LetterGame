@@ -8,10 +8,10 @@
 import UIKit
 protocol ErrorDelegate: AnyObject{
     func presentErrorToUser(localizedError: LocalizedError)
-    func showToast(message : String)
+    //func showToast(message : String)
 }
 
-extension UIViewController: ErrorDelegate {
+extension GameBoardViewController: ErrorDelegate {
     func presentErrorToUser(localizedError: LocalizedError) {
         let alertController = UIAlertController(title: "ERROR", message: localizedError.errorDescription, preferredStyle: .actionSheet)
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel)
