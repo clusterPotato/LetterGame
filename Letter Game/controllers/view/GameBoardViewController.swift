@@ -37,7 +37,7 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
             startStopButton.setTitle("Stop", for: .normal)
         } else {
             GameController.sharedInstance.forceEndGame()
-            gameWasEnded()
+            //gameWasEnded()
             startStopButton.setTitle("Start", for: .normal)
         }
     }
@@ -62,7 +62,6 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func gameStatusChanged(running: Bool) {
-        print("status changed")
         if(running){
             letterTileCollection.reloadData()
             self.word = GameController.sharedInstance.currentWord
@@ -90,7 +89,6 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         answerTextField.text = word
         //check for accreat word
-        print(answerTextField.text, self.word?.wordString)
         if(self.word?.wordString.lowercased() == answerTextField.text){
             GameController.sharedInstance.userScored()
             answerTextField.text = ""
