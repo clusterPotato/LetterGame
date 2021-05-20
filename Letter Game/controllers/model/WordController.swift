@@ -34,7 +34,7 @@ class WordController{
                 let jsWord = try JSONDecoder().decode(JSONWord.self, from: data)
                 let word = Word(word: jsWord.word)
                 self.words.append(word)
-                print("added a word, good to go")
+                print("added \(word.wordString), good to go")
             }catch{
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }

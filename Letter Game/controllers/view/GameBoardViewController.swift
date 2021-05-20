@@ -47,6 +47,7 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     //MARK: - Functions
     func timeWasUpdated(time: Int) {
         let progressFloat = Float(time) / 30.0
+        print("progressFloat \(progressFloat)")
         timerProgressView.setProgress(progressFloat, animated: true)
     }
     
