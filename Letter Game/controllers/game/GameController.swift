@@ -10,8 +10,9 @@ class GameController{
     //MARK: - instance
     static let sharedInstance = GameController()
     init(){
-        let hs = UserDefaults.standard.integer(forKey: "highSore")
+        let hs = UserDefaults.standard.integer(forKey: "highScore")
         highScore = hs
+        print("\(hs) highscore")
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerIntervalPassed), userInfo: nil, repeats: true)
     }
     let handler = WordController.sharedInstance
