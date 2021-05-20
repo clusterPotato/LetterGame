@@ -12,6 +12,7 @@ class LetterTileCollectionViewCell: UICollectionViewCell {
     //MARK: - Outlets
     @IBOutlet weak var letterTileImage: UIImageView!
     
+    var selfLetter: String?
     
     //MARK: - Properties
     var letter: String? {
@@ -23,6 +24,8 @@ class LetterTileCollectionViewCell: UICollectionViewCell {
     //MARK: - Actions
     @IBAction func letterTileTapped(_ sender: Any) {
         letterTileImage.tintColor = .gray
+        guard let selfLetter = selfLetter else {return}
+        GameController.sharedInstance.addLetter(selfLetter)
     }
     
     func updateViews() {
