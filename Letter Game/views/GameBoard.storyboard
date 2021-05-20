@@ -42,11 +42,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lwa-pk-c0R">
-                                <rect key="frame" x="31.75" y="168" width="350.5" height="113"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lwa-pk-c0R">
+                                <rect key="frame" x="32" y="171.5" width="350" height="113"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wix-Oh-B3o">
-                                        <rect key="frame" x="0.0" y="0.0" width="350.5" height="46.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="46.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFJ-6k-TdK">
                                                 <rect key="frame" x="114.5" y="0.0" width="121.5" height="20.5"/>
@@ -55,7 +55,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Z6-T4-eog">
-                                                <rect key="frame" x="20" y="42.5" width="310.5" height="4"/>
+                                                <rect key="frame" x="20" y="42.5" width="310" height="4"/>
                                             </progressView>
                                         </subviews>
                                         <constraints>
@@ -63,7 +63,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="plM-zP-7Q8">
-                                        <rect key="frame" x="0.0" y="66.5" width="350.5" height="46.5"/>
+                                        <rect key="frame" x="0.0" y="66.5" width="350" height="46.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayc-uS-uNJ">
                                                 <rect key="frame" x="153" y="0.0" width="44.5" height="20.5"/>
@@ -72,7 +72,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-pX-6T2">
-                                                <rect key="frame" x="20" y="42.5" width="310.5" height="4"/>
+                                                <rect key="frame" x="20" y="42.5" width="310" height="4"/>
                                             </progressView>
                                         </subviews>
                                         <constraints>
@@ -137,9 +137,12 @@
                             <constraint firstItem="icN-CE-5M4" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.75" id="DCb-z0-Zci"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rf5-9r-g8J" secondAttribute="trailing" constant="32" id="J8h-Jj-VOh"/>
                             <constraint firstItem="aVT-R3-McZ" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.75" id="Pe7-Vn-IVd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Lwa-pk-c0R" secondAttribute="trailing" constant="32" id="TNv-iW-yDW"/>
                             <constraint firstItem="rf5-9r-g8J" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="TR9-8m-DZn"/>
                             <constraint firstItem="rf5-9r-g8J" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="UEz-mv-wY6"/>
+                            <constraint firstItem="Lwa-pk-c0R" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="cCq-Md-bOw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aVT-R3-McZ" secondAttribute="bottom" constant="64" id="f63-BO-4jQ"/>
+                            <constraint firstItem="Lwa-pk-c0R" firstAttribute="top" secondItem="rf5-9r-g8J" secondAttribute="bottom" constant="32" id="hSd-55-5jo"/>
                             <constraint firstItem="aVT-R3-McZ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="sJB-Sx-lH0"/>
                         </constraints>
                     </view>
