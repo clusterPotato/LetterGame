@@ -29,7 +29,11 @@ class GameController{
             delegate?.gameStatusChanged(running: isRunning)
         }
     }
-    var score = 0
+    var score = 0{
+        didSet {
+            delegate?.scoreWasUpdated()
+        }
+    }
     var timeIntervalRemaining = 10{
         didSet{
             delegate?.timeWasUpdated(time: timeIntervalRemaining)
@@ -89,6 +93,7 @@ class GameController{
 //MARK: - protocol for my boy the game controller
 protocol GameControllerUpdateDelegate: AnyObject{
     func timeWasUpdated(time: Int)
+    func scoreWasUpdated()
     func gameWasEnded()
     func letterAddedToController()
     func gameStatusChanged(running: Bool)

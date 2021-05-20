@@ -9,7 +9,6 @@ import UIKit
 
 class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GameControllerUpdateDelegate, LetterCellDelegate {
     
-    
     //MARK: - Outlets
     @IBOutlet weak var answerTextField: UITextField!
     @IBOutlet weak var timerProgressView: UIProgressView!
@@ -27,6 +26,7 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     //MARK: - Properties
     var word: Word?
     let cellIdentifier = "letterCell"
+    let wordLength = 6
     
     //MARK: - Actions
     @IBAction func startStopButtonTapped(_ sender: Any) {
@@ -49,6 +49,13 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
         let progressFloat = Float(time) / 30.0
         print("progressFloat \(progressFloat)")
         timerProgressView.setProgress(progressFloat, animated: true)
+    }
+    
+    func scoreWasUpdated() {
+        let currentScore = Float(GameController.sharedInstance.score)
+        let highScore = Float(GameController.sharedInstance.highScore)
+        let scoreFloat =  currentScore/highScore
+        scoreProgressView.setProgress(scoreFloat, animated: true)
     }
     
     func gameStatusChanged(running: Bool) {
@@ -94,7 +101,7 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        return wordLength
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
