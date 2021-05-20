@@ -8,9 +8,11 @@
 import UIKit
 class GameController{
     //MARK: - instance
+    static let sharedInstance = GameController()
     init(){
         let hs = UserDefaults.standard.integer(forKey: "highSore")
         highScore = hs
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerIntervalPassed), userInfo: nil, repeats: true)
     }
     let handler = WordController.sharedInstance
     var highScore = 0
@@ -29,13 +31,15 @@ class GameController{
             delegate?.timeWasUpdated(time: timeIntervalRemaining)
         }
     }
-    static let sharedInstance = GameController()
-    let timer = Timer.init(timeInterval: 1.0, target: GameController.sharedInstance, selector: #selector(timerIntervalPassed), userInfo: nil, repeats: true)
+    var timer: Timer?
     
     //MARK: - selecter func
     @objc func timerIntervalPassed(){
         if isRunning{
             timeIntervalRemaining -= 1
+            if timeIntervalRemaining == 0 {
+                timerRanOut()
+            }
         }
     }
     

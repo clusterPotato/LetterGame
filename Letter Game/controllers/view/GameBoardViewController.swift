@@ -81,10 +81,12 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = letterTileCollection.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? LetterTileCollectionViewCell else {return UICollectionViewCell()}
         
-        let word = GameController.sharedInstance.scrambledWord
-        let letter = word[indexPath.row]
+        if GameController.sharedInstance.isRunning {
+            let word = GameController.sharedInstance.scrambledWord
+            let letter = word[indexPath.row]
+            cell.letter = letter
+        }
         
-        cell.letter = letter
         cell.delegate = self
         
         return cell
