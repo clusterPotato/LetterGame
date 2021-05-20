@@ -7,14 +7,17 @@
 
 import UIKit
 
+protocol LetterCellDelegate: AnyObject {
+    func letterSelected(_ sender: LetterTileCollectionViewCell)
+}
+
 class LetterTileCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Outlets
     @IBOutlet weak var letterTileImage: UIImageView!
     
-    var selfLetter: String?
-    
     //MARK: - Properties
+    weak var delegate: LetterCellDelegate?
     var letter: String? {
         didSet {
             updateViews()
@@ -24,8 +27,7 @@ class LetterTileCollectionViewCell: UICollectionViewCell {
     //MARK: - Actions
     @IBAction func letterTileTapped(_ sender: Any) {
         letterTileImage.tintColor = .gray
-        guard let selfLetter = selfLetter else {return}
-        GameController.sharedInstance.addLetter(selfLetter)
+        delegate?.letterSelected(self)
     }
     
     func updateViews() {

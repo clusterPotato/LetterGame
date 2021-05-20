@@ -7,7 +7,8 @@
 
 import UIKit
 
-class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GameControllerUpdateDelegate {
+class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GameControllerUpdateDelegate, LetterCellDelegate {
+    
     
     //MARK: - Outlets
     @IBOutlet weak var answerTextField: UITextField!
@@ -40,7 +41,7 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
-        answerTextField.text = ""
+        clearTapped()
     }
     
     //MARK: - Functions
@@ -51,11 +52,26 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func gameWasEnded() {
         timerProgressView.setProgress(0, animated: true)
+        print(GameController.sharedInstance.score)
         //alertcontroller
     }
     
+    func clearTapped() {
+        answerTextField.text = ""
+        GameController.sharedInstance.currentLetters = []
+    }
+    
     func letterAddedToController() {
-        //
+        var word: String = ""
+        for letter in GameController.sharedInstance.currentLetters {
+            word += letter
+        }
+        answerTextField.text = word
+    }
+    
+    func letterSelected(_ sender: LetterTileCollectionViewCell) {
+        guard let letter = sender.letter else {return}
+        GameController.sharedInstance.addLetter(letter)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,7 +81,11 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = letterTileCollection.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? LetterTileCollectionViewCell else {return UICollectionViewCell()}
         
-        //fill cell info
+        let word = GameController.sharedInstance.scrambledWord
+        let letter = word[indexPath.row]
+        
+        cell.letter = letter
+        cell.delegate = self
         
         return cell
     }
