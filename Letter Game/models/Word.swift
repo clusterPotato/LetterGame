@@ -27,7 +27,6 @@ class Word{
         for _ in orderedLetters.indices{
             let indexOfIndex = Int.random(in: indexes.indices)
             let index = indexes[indexOfIndex]
-            let letter = orderedLetters[index]
             indexes.remove(at: indexOfIndex)
             permutedWord.append(orderedLetters[index])
         }

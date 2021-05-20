@@ -54,6 +54,10 @@ class GameBoardViewController: UIViewController, UICollectionViewDelegate, UICol
         //alertcontroller
     }
     
+    func letterAddedToController() {
+        //
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         6
     }
